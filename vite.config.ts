@@ -14,12 +14,16 @@ export default defineConfig(({mode}) => {
         registerType: 'autoUpdate',
         includeAssets: ['icon.svg', 'icon-192.png', 'icon-512.png'],
         manifest: {
+          id: '/',
+          start_url: '/',
           name: 'Master Xadrez Pro',
           short_name: 'Xadrez Pro',
           description: 'Jogo de xadrez moderno com IA',
           theme_color: '#131313',
           background_color: '#131313',
           display: 'standalone',
+          orientation: 'portrait',
+          scope: '/',
           icons: [
             {
               src: 'icon-192.png',
@@ -38,6 +42,9 @@ export default defineConfig(({mode}) => {
               purpose: 'any maskable'
             }
           ]
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,png,svg,ico}']
         }
       })
     ],
